@@ -1,0 +1,17 @@
+---
+import Navbar from "../components/Navbar.astro";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Moksh Shah</title>
+	</head>
+	<body class="bg-black">
+		<Navbar/>
+		<slot />
+	</body>
+</html>
