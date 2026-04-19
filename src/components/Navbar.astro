@@ -1,8 +1,9 @@
 ---
 import "../styles/global.css";
+const { className } = Astro.props;
 ---
-<div class="flex items-center justify-center w-full">
-<nav class="flex items-center w-[70vw] justify-center  mx-4 max-md:w-full max-md:justify-between px-6 py-4 rounded-lg text-white text-sm border m-3">
+<div class={`flex items-center justify-center w-full ${className}`}>
+<nav class="flex items-center w-[70vw] justify-center mx-4 max-md:w-full max-md:justify-between px-6 py-4 rounded-lg text-white text-sm border border-white/10 bg-white/5 backdrop-blur-lg m-3">
     <div class="hidden md:flex items-center gap-6 ml-7">
         <a href="#" class="relative overflow-hidden h-6 group">
             <span class="block group-hover:-translate-y-full transition-transform duration-300">Home</span>

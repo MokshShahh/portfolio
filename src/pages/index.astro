@@ -1,11 +1,61 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
+import Dot from '../components/dot.jsx';
+import Shuffle from '../components/shuffleText.jsx';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
+  <div style={{ width: '100%', height: '100vh', position: 'relative', overflow: 'hidden' }}>
+    {/* @ts-ignore */}
+    <Dot
+      dotRadius={1.5}
+      dotSpacing={14}
+      bulgeStrength={67}
+      glowRadius={160}
+      sparkle={false}
+      waveAmplitude={0}
+      cursorRadius={500}
+      cursorForce={0.1}
+      bulgeOnly
+      gradientFrom="#A855F7"
+      gradientTo="#B497CF"
+      glowColor="#120F17"
+      client:load
+    />
+    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-4">
+      <div class="pointer-events-auto">
+                    {/* @ts-ignore */}
+
+        <Shuffle
+          text="Moksh Shah"
+          shuffleDirection="right"
+          duration={1.0}
+          animationMode="evenodd"
+          shuffleTimes={1}
+          ease="power3.out"
+          stagger={0.03}
+          threshold={0.1}
+          triggerOnce={true}
+          triggerOnHover
+          respectReducedMotion={true}
+          loop={false}
+          loopDelay={0}
+          client:load
+        />
+      </div>
+      <p class="text-white/60 text-lg md:text-xl mt-4 font-medium tracking-wide text-center uppercase">
+          Trying to build cool shit
+      </p>
+      <button
+            class="mt-8 pointer-events-auto bg-green-400 hover:shadow-[0px_0px_30px_14px] shadow-[0px_0px_30px_7px] hover:shadow-white/50 shadow-white/50 text-black px-4 py-2 rounded-lg text-sm font-bold hover:bg-white transition-all duration-300">
+            Terminal website
+        </button>
+    </div>
+  </div>
+
+
+  <footer class="py-10 text-center text-gray-600 text-sm border-t border-white/5 bg-black">
+    <p>&copy; 2024 Moksh Shah. All rights reserved.</p>
+  </footer>
 </Layout>
