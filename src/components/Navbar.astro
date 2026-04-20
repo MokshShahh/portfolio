@@ -1,87 +1,111 @@
 ---
-import "../styles/global.css";
 const { className } = Astro.props;
+
+const links = [
+  { name: "Home", href: "/" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Resume", href: "/resume.pdf" },
+];
 ---
-<div class={`flex items-center justify-center w-full ${className}`}>
-<nav class="flex items-center w-[70vw] justify-center mx-4 max-md:w-full max-md:justify-between px-6 py-4 rounded-lg text-white text-sm border border-white/10 bg-white/5 backdrop-blur-lg m-3">
-    <div class="hidden md:flex items-center gap-6 ml-7">
-        <a href="#" class="relative overflow-hidden h-6 group">
-            <span class="block group-hover:-translate-y-full transition-transform duration-300">Home</span>
-            <span
-                class="block absolute top-full left-0 group-hover:translate-y-full transition-transform duration-300">Home</span>
+
+<header class={`fixed top-0 left-0 w-full flex justify-center p-6 z-50 ${className}`}>
+  <nav class="flex items-center px-6 py-2.5 rounded-full border border-white/10 bg-black/20 backdrop-blur-md transition-all duration-300 hover:border-white/20">
+    <div class="font-mono hidden md:flex items-center gap-8">
+      {links.map((link) => (
+        <a 
+          href={link.href} 
+          class="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200"
+        >
+          {link.name}
         </a>
-        <a href="#" class="relative overflow-hidden h-6 group">
-            <span class="block group-hover:-translate-y-full transition-transform duration-300">Work experience</span>
-            <span
-                class="block absolute top-full left-0 group-hover:translate-y-full transition-transform duration-300">Work experience</span>
-        </a>
-        <a href="#" class="relative overflow-hidden h-6 group">
-            <span class="block group-hover:-translate-y-full transition-transform duration-300">Resume</span>
-            <span
-                class="block absolute top-full left-0 group-hover:translate-y-full transition-transform duration-300">Resume</span>
-        </a>
-        <a href="#" class="relative overflow-hidden h-6 group">
-            <span class="block group-hover:-translate-y-full transition-transform duration-300">Projects</span>
-            <span
-                class="block absolute top-full left-0 group-hover:translate-y-full transition-transform duration-300">Projects</span>
-        </a>
+      ))}
+      <div class="w-px h-4 bg-white/10 mx-2"></div>
+      <a 
+        href="mailto:mokshah@outlook.com" 
+        class="text-sm font-medium text-white hover:text-green-400 transition-colors duration-200"
+      >
+        Contact
+      </a>
     </div>
 
-    <!-- <div class="hidden ml-14 md:flex items-center gap-4">
-        <button
-            class="border-slate-600 rounded-lg  hover:bg-slate-800 px-4 py-2 text-sm font-medium transition">
-            Contact
-        </button>
-        <button
-            class="bg-white hover:shadow-[0px_0px_30px_14px] shadow-[0px_0px_30px_7px] hover:shadow-white/50 shadow-white/50 text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-100 transition duration-300">
-            Resume
-        </button>
-    </div> -->
-    <button id="menuToggle" class="md:hidden text-gray-600">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+    <!-- Mobile Toggle -->
+    <button id="menuToggle" class="md:hidden flex items-center justify-center text-white/70 hover:text-white transition-colors">
+      <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+      <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
     </button>
-    <div id="mobileMenu" class="absolute hidden top-48 text-base left-0 bg-black w-full flex-col items-center gap-4">
-        <a class="hover:text-indigo-600" href="#">
-            Home
-        </a>
-        <a class="hover:text-indigo-600" href="#">
-            Work experience
-        </a>
-        <a class="hover:text-indigo-600" href="#">
-            Resume
-        </a>
-        <a class="hover:text-indigo-600" href="#">
-            Projects
-        </a>
-        <button
-            class=" border-slate-600 hover:bg-slate-800 px-4 py-2 rounded-full text-sm font-medium transition">
-            Contact
-        </button>
-        <button
-            class="bg-white hover:shadow-[0px_0px_30px_14px] shadow-[0px_0px_30px_7px] hover:shadow-white/50 shadow-white/50 text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-100 transition duration-300">
-            Resume
-        </button>
-    </div>
-</nav>
-</div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobileMenu" class="fixed inset-0 bg-black/95 backdrop-blur-2xl hidden flex-col items-center justify-center gap-8 z-60 transition-all duration-300 opacity-0">
+    {links.map((link) => (
+      <a 
+        href={link.href} 
+        class="mobile-link text-xl font-pixel text-white/70 hover:text-white transition-colors"
+      >
+        {link.name}
+      </a>
+    ))}
+    <a 
+      href="mailto:contact@example.com" 
+      class="mobile-link text-xl font-pixel text-green-400 hover:text-green-300 transition-colors"
+    >
+      Contact
+    </a>
+  </div>
+</header>
 
 <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (menuToggle!== null && mobileMenu!== null) {
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+  const closeIcon = document.getElementById('closeIcon');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    menuToggle.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-        } else {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('flex');
-        }
-        
+  function toggleMenu() {
+    if (!mobileMenu || !menuIcon || !closeIcon) return;
+
+    const isHidden = mobileMenu.classList.contains('hidden');
+
+    if (isHidden) {
+      // Open Menu
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      // Small timeout to allow transition to trigger after removing hidden
+      setTimeout(() => {
+        mobileMenu.classList.replace('opacity-0', 'opacity-100');
+      }, 10);
+      menuIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Close Menu
+      mobileMenu.classList.replace('opacity-100', 'opacity-0');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+
+      setTimeout(() => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      }, 300);
+    }
+  }
+
+  menuToggle?.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleMenu();
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        toggleMenu();
+      }
     });
-}
+  });
 </script>

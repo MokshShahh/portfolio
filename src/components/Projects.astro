@@ -1,0 +1,129 @@
+---
+import PixelCard from './pixelCard.jsx';
+import {  ExternalLink } from 'lucide-react';
+
+const projects = [
+  {
+    title: "Terminal Portfolio",
+    description: "A retro-style terminal portfolio built with Astro and React. Features a custom command-line interface and file system simulation.",
+    tech: ["Astro", "React", "Tailwind"],
+    github: "https://github.com",
+    live: "https://example.com"
+  },
+  {
+    title: "Terminal Portfolio",
+    description: "A retro-style terminal portfolio built with Astro and React. Features a custom command-line interface and file system simulation.",
+    tech: ["Astro", "React", "Tailwind"],
+    github: "https://github.com",
+    live: "https://example.com"
+  },
+  {
+    title: "Terminal Portfolio",
+    description: "A retro-style terminal portfolio built with Astro and React. Features a custom command-line interface and file system simulation.",
+    tech: ["Astro", "React", "Tailwind"],
+    github: "https://github.com",
+    live: "https://example.com"
+  },
+];
+---
+
+<section class="py-20 px-4 bg-black" id="projects">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-pixel text-white mb-12 text-center uppercase tracking-tighter">
+      Projects
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+      {projects.map((project) => (
+        <div class="w-full max-w-350px aspect-4/5">
+              {/* @ts-ignore */}
+          <PixelCard client:only className="w-full h-full" variant="blue" gap={8}>
+            <div class="absolute inset-0 p-8 flex flex-col text-white z-10 pointer-events-none">
+              <h3 class="text-xl font-pixel mb-4 pointer-events-auto">{project.title}</h3>
+              
+              <div class="mb-6 pointer-events-auto">
+                <p class="text-xs uppercase font-mono text-gray-500 mb-2">Tech Used</p>
+                <div class="flex flex-wrap gap-2">
+                  {project.tech.map((t) => (
+                    <span class="border border-white/20 px-2 py-1 text-[10px] uppercase font-mono bg-black/40">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <p class="text-sm font-mono text-gray-300 mb-8 line-clamp-2 pointer-events-auto">
+                {project.description}
+              </p>
+              
+              <div class="mt-auto flex gap-4 pointer-events-auto">
+                <a 
+                  href={project.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="border border-white/20 p-3 hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center aspect-square"
+                  title="GitHub Repository"
+                >
+                  {/* <Github size={20} /> */}
+                  <img src="github.svg" alt="GitHub" class="w-7 h-7" />
+                </a>
+                <a 
+                  href={project.live} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="border border-white/20 p-3 hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center aspect-square"
+                  title="Live Demo"
+                >
+                  <ExternalLink size={20} />
+                </a>
+              </div>
+            </div>
+          </PixelCard>
+          
+        </div>
+        
+        
+      ))}
+    </div>
+    <div class="mt-16 flex justify-center">
+  <a 
+    href="projects" 
+    target="_blank"
+    class="group relative inline-flex items-center justify-center px-8 py-4 font-pixel text-[10px] md:text-xs uppercase tracking-[0.2em] text-white transition-all duration-500 ease-out"
+  >
+    <span class="absolute inset-0 border border-white/20 bg-black 
+                 group-hover:bg-white group-hover:border-white 
+                 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] 
+                 transition-all duration-500"></span>
+    
+    <span class="absolute -top-1 -left-1 w-2 h-2 border-t-2 border-l-2 border-green-500 
+                 group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] 
+                 transition-transform duration-300"></span>
+    <span class="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-green-500 
+                 group-hover:translate-x-[2px] group-hover:translate-y-[2px] 
+                 transition-transform duration-300"></span>
+    
+    <span class="relative z-10 flex items-center gap-3 group-hover:text-black transition-colors duration-500">
+      View More Projects
+      <svg 
+        class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-500" 
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg>
+    </span>
+  </a>
+</div>
+  </div>
+</section>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
