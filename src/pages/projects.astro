@@ -5,72 +5,72 @@ import { ExternalLink } from 'lucide-react';
 
 const projects = [
   {
-    title: "EventHub",
-    description: "A full-stack event management system built. This platform allows users to discover events, register, and manage committee activities. Built for the committees of MPSTME.",
-    tech: ["PostgreSQL", "Django", "Nextjs"],
-    github: "https://github.com/MokshShahh/EventHub",
-    live: "palladium.mpstme.dev"
-  },
-  {
-    title: "HTTP over TCP",
-    description: "A Go HTTP/1.1 server and request parser, built without using the net/http library and implemented on raw TCP streams. ",
-    tech: ["GO"],
-    github: "https://github.com/MokshShahh/HTTP-over-TCP",
-    live: ""
-  },
-  {
-    title: "Alzeimers detection",
-    description: "Deep learning system using EfficientNet-B2 to classify Alzheimer's disease progression from MRI scans. Achived an accuracy of 86% on the OASIS-2 dataset",
-    tech: ["Python", "Efficient net", "NUMPY"],
-    github: "https://github.com/MokshShahh/Alzeimers-detection",
-    live: ""
-  },
-  {
-    title: "DevGaurd",
-    description: "DevGuard is a productivity focused browser extension that redirects web traffic to the daily LeetCode problem until it is completed. It leverages the Chrome declarativeNetRequest API and LeetCode API to verify submissions and track user consistency.",
-    tech: ["JavaScript", "Chrome API", "Rest api"],
-    github: "https://github.com/MokshShahh/DevGaurd",
-    live: "https://chromewebstore.google.com/detail/devgaurd/mljdkehdeebblhhkghiigpaahgelkeog?pli=1"
-  },
-  {
-    title: "Chirpy",
-    description: "A high-performance Go backend for a micro-blogging platform. It includes automated profanity filtering, role-based upgrades via webhooks, and comprehensive administrative metrics tracking.",
-    tech: ["GO", "PostgeSQL", "bcrypt", "JWT"],
-    github: "https://github.com/MokshShahh/Chirpy",
-    live: ""
-  },
-  {
-    title: "Clerk",
-    description: "A voice-driven AI agent that transcribes consultations and drafts clinical notes in real-time. It integrates Harvard’s PrimeKG knowledge graph to provide live decision support for drug interactions and prescriptions.",
-    tech: ["LangChain", "fastapi", "next"],
-    github: "https://github.com/MokshShahh/Alzeimers-detection",
-    live: ""
-  },
-  {
     title: "Rail Yatri",
-    description: "Developed for SIH 2025 (top 30 of 125+ teams), this platform provides real-time scheduling and conflict resolution for the Mumbai Railway using MILP. It leverages deep reinforcement learning to automate dispatching decisions and optimize overall network performance.",
-    tech: ["FatAPI", "neo4j", "threejs"],
+    description: "Smart railway dispatcher developed for SIH 2025 (Top 30 out of 125+). Uses MILP and Deep Reinforcement Learning to resolve real-time scheduling conflicts for the Mumbai Railway network.",
+    tech: ["FastAPI", "Neo4j", "Three.js", "ML"],
     github: "https://github.com/MokshShahh/Alzeimers-detection",
     live: "https://sih-25-delta.vercel.app/dashboard"
   },
   {
+    title: "HTTP over TCP",
+    description: "A high-performance HTTP/1.1 server built from scratch in Go, bypassing standard libraries to implement core networking protocols directly on raw TCP streams.",
+    tech: ["Go", "TCP", "Systems"],
+    github: "https://github.com/MokshShahh/HTTP-over-TCP",
+    live: ""
+  },
+  {
     title: "Judiciary AI",
-    description: "An AI chatbot designed for the Indian judicial system using PDF vectorization and RAG to perform semantic search across complex legal datasets. Developed for SIH 2024, the project ranked 4th out of 100+ teams in internal qualifiers",
-    tech: ["RAG", "Flask", "React"],
+    description: "An AI-driven legal assistant using PDF vectorization and RAG to perform semantic search across complex Indian judicial datasets. Ranked 4th in SIH internal qualifiers.",
+    tech: ["RAG", "Flask", "React", "Gemini"],
     github: "https://github.com/MokshShahh/JudiciaryAI",
     live: ""
   },
   {
     title: "RaAI",
-    description: "An emotional intelligence agent using RAG to analyze journals and detect cognitive distortions. Awarded 2nd place at HackXplore '25, it provides personalized wellness exercises and real-time crisis detection using multi-LLM orchestration.",
-    tech: ["Mongodb", "langchain", "docker"],
+    description: "Awarded 2nd place at HackXplore '25. An emotional intelligence agent using RAG to analyze journals and detect cognitive distortions using multi-LLM orchestration.",
+    tech: ["MongoDB", "LangChain", "Docker", "LLMs"],
     github: "https://github.com/MokshShahh/RaAI",
     live: "https://ra-ai-two.vercel.app/"
   },
   {
+    title: "EventHub",
+    description: "A full-stack event management system built for the committees of MPSTME. Allows users to discover events, register, and manage complex committee activities.",
+    tech: ["PostgreSQL", "Django", "Next.js"],
+    github: "https://github.com/MokshShahh/EventHub",
+    live: "palladium.mpstme.dev"
+  },
+  {
+    title: "Chirpy",
+    description: "A high-performance Go backend for a micro-blogging platform. Features automated profanity filtering, role-based upgrades via webhooks, and administrative metrics tracking.",
+    tech: ["Go", "PostgreSQL", "JWT", "Webhooks"],
+    github: "https://github.com/MokshShahh/Chirpy",
+    live: ""
+  },
+  {
+    title: "Clerk",
+    description: "A voice-driven AI agent that transcribes consultations and drafts clinical notes. Integrates PrimeKG knowledge graph for live drug interaction support.",
+    tech: ["LangChain", "FastAPI", "Next.js", "NLP"],
+    github: "https://github.com/MokshShahh/Alzeimers-detection",
+    live: ""
+  },
+  {
+    title: "Alzeimers detection",
+    description: "Deep learning system using EfficientNet-B2 to classify Alzheimer's disease progression from MRI scans. Achieved 86% accuracy on the OASIS-2 dataset.",
+    tech: ["Python", "EfficientNet", "NumPy", "PyTorch"],
+    github: "https://github.com/MokshShahh/Alzeimers-detection",
+    live: ""
+  },
+  {
+    title: "DevGaurd",
+    description: "A browser extension that redirects traffic to LeetCode until the daily problem is completed. Leverages Chrome declarativeNetRequest and LeetCode APIs.",
+    tech: ["JavaScript", "Chrome API", "REST API"],
+    github: "https://github.com/MokshShahh/DevGaurd",
+    live: "https://chromewebstore.google.com/detail/devgaurd/mljdkehdeebblhhkghiigpaahgelkeog?pli=1"
+  },
+  {
     title: "Ad Targeting",
-    description: "An ad-serving platform using DBSCAN for user segmentation and Softmax for predicting purchasing intent. Awarded 2nd place at ACE 1.0, it uses Gemini to generate AI-driven captions tailored to specific behavioral clusters.",
-    tech: ["DBSCAN", "softmax", "flask"],
+    description: "Ad-serving platform using DBSCAN for user segmentation and Softmax for purchasing intent. Awarded 2nd place at ACE 1.0; uses Gemini for behavioral-targeted captions.",
+    tech: ["DBSCAN", "Softmax", "Flask", "ML"],
     github: "https://github.com/MokshShahh/Ad-Targeting-using-Clustering",
     live: ""
   },
@@ -85,7 +85,7 @@ const projects = [
           All Projects
         </h1>
         <p class="text-gray-400 font-mono text-sm md:text-base max-w-2xl mx-auto">
-          A collection of my work, ranging from full-stack applications to low-level systems programming and machine learning.
+          A collection of my work in AI optimization, low-level systems, and full-stack development.
         </p>
       </header>
 
@@ -95,20 +95,20 @@ const projects = [
             {/* @ts-ignore */}
             <PixelCard client:only className="w-full h-full" variant="blue" gap={8}>
               <div class="absolute inset-0 p-8 flex flex-col text-white z-10 pointer-events-none">
-                <h3 class="text-xl font-pixel mb-4 pointer-events-auto">{project.title}</h3>
+                <h3 class="text-xl font-pixel mb-4 pointer-events-auto leading-tight">{project.title}</h3>
                 
                 <div class="mb-6 pointer-events-auto">
-                  <p class="text-xs uppercase font-mono text-gray-500 mb-2">Tech Used</p>
+                  <p class="text-[10px] uppercase font-mono text-white/30 mb-2 tracking-[0.2em]">Tech Stack</p>
                   <div class="flex flex-wrap gap-2">
                     {project.tech.map((t) => (
-                      <span class="border border-white/20 px-2 py-1 text-[10px] uppercase font-mono bg-black/40">
+                      <span class="border border-white/10 px-2 py-1 text-[9px] uppercase font-mono text-white/50 bg-white/[0.02]">
                         {t}
                       </span>
                     ))}
                   </div>
                 </div>
                 
-                <p class="text-sm font-mono text-gray-300 mb-8 pointer-events-auto">
+                <p class="text-sm font-mono text-white/40 mb-8 pointer-events-auto leading-relaxed">
                   {project.description}
                 </p>
                 
@@ -117,17 +117,18 @@ const projects = [
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="group border border-white/20 p-3 hover:bg-white transition-all duration-300 flex items-center justify-center aspect-square relative"
+                    class="group/icon border border-white/10 p-3 hover:bg-white transition-all duration-300 flex items-center justify-center aspect-square relative"
                     title="GitHub Repository"
                   >
-                    <img src="github.svg" alt="GitHub" class="w-7 h-7 group-hover:opacity-0 transition-opacity" />
-                    <img src="github-dark.png" alt="GitHub" class="w-7 h-7 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>                  {project.live && (
+                    <img src="/github.svg" alt="GitHub" class="w-7 h-7 group-hover/icon:opacity-0 transition-opacity" />
+                    <img src="/github-dark.png" alt="GitHub" class="w-7 h-7 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/icon:opacity-100 transition-opacity" />
+                  </a>
+                  {project.live && (
                     <a 
                       href={project.live} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      class="border border-white/20 p-3 hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center aspect-square"
+                      class="border border-white/10 p-3 hover:bg- hover:text-black transition-all duration-300 flex items-center justify-center aspect-square"
                       title="Live Demo"
                     >
                       <ExternalLink size={20} />
@@ -141,6 +142,4 @@ const projects = [
       </div>
     </div>
   </main>
-
 </Layout>
-

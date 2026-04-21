@@ -5,7 +5,7 @@ const links = [
   { name: "Home", href: "/" },
   { name: "Experience", href: "/#experience" },
   { name: "Projects", href: "/projects" },
-  { name: "Resume", href: "/resume.pdf" },
+  { name: "Resume", href: "/resume.pdf", download: "Moksh_Shah_Resume.pdf" },
 ];
 ---
 
@@ -15,6 +15,7 @@ const links = [
       {links.map((link) => (
         <a 
           href={link.href} 
+          download={link.download}
           class="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200"
         >
           {link.name}
@@ -45,6 +46,7 @@ const links = [
     {links.map((link) => (
       <a 
         href={link.href} 
+        download={link.download}
         class="mobile-link text-xl font-pixel text-white/70 hover:text-white transition-colors"
       >
         {link.name}
