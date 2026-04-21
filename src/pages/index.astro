@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Dot from '../components/dot.jsx';
 import Shuffle from '../components/shuffleText.jsx';
+import Experience from '../components/Experience.astro';
 import Projects from '../components/Projects.astro';
 
 ---
@@ -10,7 +11,7 @@ import Projects from '../components/Projects.astro';
   <div style={{ width: '100%', height: '100vh', position: 'relative', overflow: 'hidden', background: 'black' }}>
     {/* @ts-ignore */}
     <Dot
-      dotRadius={3}
+      dotRadius={2}
       dotSpacing={10}
       bulgeStrength={67}
       glowRadius={160}
@@ -52,7 +53,7 @@ import Projects from '../components/Projects.astro';
         />
       </div>
       <p class="text-white text-lg md:text-xl mt-4 font-bold tracking-wide text-center uppercase font-mono">
-          Trying to build cool shit
+          I try to build things
       </p>
 <a href="/terminal" class="pointer-events-auto">
 <button
@@ -85,9 +86,8 @@ import Projects from '../components/Projects.astro';
     </div>
   </div>
 
+  <Experience />
   <Projects />
 
-  <footer class="py-10 text-center text-gray-600 text-sm border-t border-white/5 bg-black">
-    <p>&copy; 2026 Moksh Shah. All rights reserved.</p>
-  </footer>
+
 </Layout>

@@ -57,16 +57,16 @@ const projects = [
               </p>
               
               <div class="mt-auto flex gap-4 pointer-events-auto">
-                <a 
-                  href={project.github} 
-                  target="_blank" 
+                <a
+                  href={project.github}
+                  target="_blank"
                   rel="noopener noreferrer"
-                  class="border border-white/20 p-3 hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center aspect-square"
+                  class="group border border-white/20 p-3 hover:bg-white transition-all duration-300 flex items-center justify-center aspect-square relative"
                   title="GitHub Repository"
                 >
-                  <img src="github.svg" alt="GitHub" class="w-7 h-7" />
-                </a>
-                <a 
+                  <img src="github.svg" alt="GitHub" class="w-7 h-7 group-hover:opacity-0 transition-opacity" />
+                  <img src="github-dark.png" alt="GitHub" class="w-7 h-7 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>                <a 
                   href={project.live} 
                   target="_blank" 
                   rel="noopener noreferrer"
@@ -117,11 +117,3 @@ const projects = [
   </div>
 </section>
 
-<style>
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-</style>

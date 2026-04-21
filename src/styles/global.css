@@ -6,3 +6,17 @@
   --font-pixel: "Press Start 2P", system-ui;
   --font-mono: "Space Mono", monospace;
 }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply transition-colors duration-300;
+  }
+
+  a, button {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}

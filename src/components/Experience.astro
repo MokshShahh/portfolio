@@ -1,0 +1,90 @@
+---
+import { CompassIcon } from "lucide-react";
+
+const experiences = [
+  {
+    company: "Synergy Connect",
+    companyLink: "https://synergyconnect.in/",
+    role: "Software Engineering Intern",
+    period: "June 25 - July 25",
+    description: [
+      "Architected core backend services using Spring Boot and FastAPI, implementing real-time Markdown-to-HTML conversion.",
+      "Developed secure authentication flows and error handling systems to ensure robust platform security.",
+      "Optimized backend logic for conversation management, focusing on naming and data truncation.",
+      "Engineered PDF preview functionality, bridging backend data processing with frontend display.",
+      "Redesigned application layout and UI/UX, implementing interactive elements like the iPhone glass effect."
+    ],
+    links: []
+  },
+  {
+    company: "RebelCorp",
+    companyLink: "https://rebelcorp.ai/",
+    role: "Web Development Intern",
+    period: "May 24 - July 24",
+    description: [
+      "Developed Jyoti Structures' contact system, achieving a 40% increase in communication efficiency.",
+      "Led the design and development for The Indian Project, significantly improving digital presence.",
+      "Managed and mentored a team of 20 interns, successfully delivering various themes for the platform."
+    ],
+    links: [
+      { name: "Jyoti Structures", url: "https://jyotistructures.in/contact-us" },
+      { name: "The Indian Project", url: "https://theindianproject.in/" }
+    ]
+  }
+];
+---
+
+<section id="experience" class="py-24 px-6 bg-black">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="font-pixel text-2xl md:text-3xl text-white mb-16 uppercase tracking-tighter">
+      Experience
+    </h2>
+
+    <div class="space-y-16">
+      {experiences.map((exp) => (
+        <div class="group relative grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 pb-12 border-b border-white/5 last:border-0">
+          <div class="md:col-span-1">
+            <span class="text-white/30 font-mono text-xs uppercase tracking-widest leading-none">
+              {exp.period}
+            </span>
+          </div>
+          
+          <div class="md:col-span-3">
+            <div class="flex flex-col gap-2">
+              <a href={exp.companyLink} class="text-white text-lg font-mono font-bold uppercase tracking-wide group-hover:text-green-400 transition-colors">
+                {exp.company}
+              </a>
+              <p class="text-white/60 font-mono text-sm uppercase tracking-tight mb-6">
+                {exp.role}
+              </p>
+              
+              <div class="space-y-4 mb-8">
+                {exp.description.map((item) => (
+                  <p class="text-white/40 font-mono text-sm leading-relaxed max-w-2xl flex gap-3">
+                    <span class="text-green-500/50 shrink-0">—</span>
+                    {item}
+                  </p>
+                ))}
+              </div>
+
+              {exp.links && exp.links.length > 0 && (
+                <div class="flex flex-wrap gap-6">
+                  {exp.links.map((link) => (
+                    <a 
+                      href={link.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="text-[12px] font-mono uppercase tracking-widest text-white/50 hover:text-green-400 border-b border-white/10 hover:border-green-400/50 pb-1 transition-all"
+                    >
+                      view {link.name} ↗
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

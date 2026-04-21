@@ -1,5 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import Footer from '../components/footer.astro';
+import { ClientRouter } from 'astro:transitions';
 import "../styles/global.css";
 ---
 
@@ -11,9 +13,11 @@ import "../styles/global.css";
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Moksh Shah</title>
+		<ClientRouter />
 	</head>
 	<body class="bg-black">
 		<Navbar />
 		<slot />
+		<Footer />
 	</body>
 </html>

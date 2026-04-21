@@ -8,7 +8,7 @@ import Shuffle from '../components/shuffleText.jsx';
   <div style={{ width: '100%', height: '100vh', position: 'relative', overflow: 'hidden', background: 'black' }}>
     {/* @ts-ignore */}
     <Dot
-      dotRadius={3}
+      dotRadius={2}
       dotSpacing={10}
       bulgeStrength={67}
       glowRadius={160}
@@ -17,12 +17,13 @@ import Shuffle from '../components/shuffleText.jsx';
       cursorRadius={500}
       cursorForce={0.1}
       bulgeOnly
-      gradientFrom="#A855F7"
-      gradientTo="#B497CF"
+      gradientFrom="#00CC32"
+      gradientTo="#00CC32"
       glowColor="#120F17"
       client:load
     />    
-    
+        <div class="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-black to-transparent z-5 pointer-events-none"></div>
+
     <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-4">
       <div class="pointer-events-auto">
         {/* @ts-ignore */}
@@ -47,24 +48,25 @@ import Shuffle from '../components/shuffleText.jsx';
           client:load
         />
       </div>
-      <p class="text-white/60 text-sm md:text-base mt-6 font-mono tracking-widest text-center uppercase">
+      <p class="text-white/80 text-sm md:text-base mt-6 font-mono tracking-widest text-center uppercase">
           The terminal experience is under development
       </p>
       
       <div class="mt-12 flex gap-4 pointer-events-auto">
-        <a 
-          href="/" 
-          class="px-6 py-2 border border-white/20 text-white font-mono text-xs uppercase hover:bg-white hover:text-black transition-all"
-        >
-          Return Home
+        <a href="/" class="group relative inline-flex items-center justify-center px-6 py-3 font-pixel text-xs md:text-sm uppercase tracking-[0.2em] text-green-400 transition-all duration-500 ease-in-out">
+          <span class="absolute inset-0 border-2 border-green-500 bg-transparent group-hover:bg-green-400 group-hover:shadow-[0_0_30px_rgba(74,222,128,0.6)] transition-all duration-500"></span>
+          
+          <span class="absolute -top-3 -left-3 w-4 h-4 border-t-2 border-l-2 border-green-500 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-300"></span>
+          <span class="absolute -bottom-3 -right-3 w-4 h-4 border-b-2 border-r-2 border-green-500 opacity-50 group-hover:opacity-100 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-all duration-300"></span>
+
+          <span class="relative z-10 flex items-center gap-3 group-hover:text-black transition-colors duration-500">
+            <span class="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+              &lt;
+            </span>
+            Return Home
+          </span>
         </a>
       </div>
-    </div>
-    
-    <div class="absolute bottom-10 left-0 w-full flex justify-center pointer-events-none">
-        <div class="font-mono text-[10px] text-gray-500 uppercase tracking-[0.3em] animate-pulse">
-            System Initializing...
-        </div>
     </div>
   </div>
 </Layout>
