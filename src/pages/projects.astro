@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PixelCard from '../components/pixelCard.jsx';
+import { ExternalLink } from 'lucide-react';
+
+const projects = [
+  {
+    title: "EventHub",
+    description: "A full-stack event management system built. This platform allows users to discover events, register, and manage committee activities. Built for the committees of MPSTME.",
+    tech: ["PostgreSQL", "Django", "Nextjs"],
+    github: "https://github.com/MokshShahh/EventHub",
+    live: "palladium.mpstme.dev"
+  },
+  {
+    title: "HTTP over TCP",
+    description: "A Go HTTP/1.1 server and request parser, built without using the net/http library and implemented on raw TCP streams. ",
+    tech: ["GO"],
+    github: "https://github.com/MokshShahh/HTTP-over-TCP",
+    live: ""
+  },
+  {
+    title: "Alzeimers detection",
+    description: "Deep learning system using EfficientNet-B2 to classify Alzheimer's disease progression from MRI scans. Achived an accuracy of 86% on the OASIS-2 dataset",
+    tech: ["Python", "Efficient net", "NUMPY"],
+    github: "https://github.com/MokshShahh/Alzeimers-detection",
+    live: ""
+  },
+  {
+    title: "DevGaurd",
+    description: "DevGuard is a productivity focused browser extension that redirects web traffic to the daily LeetCode problem until it is completed. It leverages the Chrome declarativeNetRequest API and LeetCode API to verify submissions and track user consistency.",
+    tech: ["JavaScript", "Chrome API", "Rest api"],
+    github: "https://github.com/MokshShahh/DevGaurd",
+    live: "https://chromewebstore.google.com/detail/devgaurd/mljdkehdeebblhhkghiigpaahgelkeog?pli=1"
+  },
+  {
+    title: "Chirpy",
+    description: "A high-performance Go backend for a micro-blogging platform. It includes automated profanity filtering, role-based upgrades via webhooks, and comprehensive administrative metrics tracking.",
+    tech: ["GO", "PostgeSQL", "bcrypt", "JWT"],
+    github: "https://github.com/MokshShahh/Chirpy",
+    live: ""
+  },
+  {
+    title: "Clerk",
+    description: "A voice-driven AI agent that transcribes consultations and drafts clinical notes in real-time. It integrates Harvard’s PrimeKG knowledge graph to provide live decision support for drug interactions and prescriptions.",
+    tech: ["LangChain", "fastapi", "next"],
+    github: "https://github.com/MokshShahh/Alzeimers-detection",
+    live: ""
+  },
+  {
+    title: "Rail Yatri",
+    description: "Developed for SIH 2025 (top 30 of 125+ teams), this platform provides real-time scheduling and conflict resolution for the Mumbai Railway using MILP. It leverages deep reinforcement learning to automate dispatching decisions and optimize overall network performance.",
+    tech: ["FatAPI", "neo4j", "threejs"],
+    github: "https://github.com/MokshShahh/Alzeimers-detection",
+    live: "https://sih-25-delta.vercel.app/dashboard"
+  },
+  {
+    title: "Judiciary AI",
+    description: "An AI chatbot designed for the Indian judicial system using PDF vectorization and RAG to perform semantic search across complex legal datasets. Developed for SIH 2024, the project ranked 4th out of 100+ teams in internal qualifiers",
+    tech: ["RAG", "Flask", "React"],
+    github: "https://github.com/MokshShahh/JudiciaryAI",
+    live: ""
+  },
+  {
+    title: "RaAI",
+    description: "An emotional intelligence agent using RAG to analyze journals and detect cognitive distortions. Awarded 2nd place at HackXplore '25, it provides personalized wellness exercises and real-time crisis detection using multi-LLM orchestration.",
+    tech: ["Mongodb", "langchain", "docker"],
+    github: "https://github.com/MokshShahh/RaAI",
+    live: "https://ra-ai-two.vercel.app/"
+  },
+  {
+    title: "Ad Targeting",
+    description: "An ad-serving platform using DBSCAN for user segmentation and Softmax for predicting purchasing intent. Awarded 2nd place at ACE 1.0, it uses Gemini to generate AI-driven captions tailored to specific behavioral clusters.",
+    tech: ["DBSCAN", "softmax", "flask"],
+    github: "https://github.com/MokshShahh/Ad-Targeting-using-Clustering",
+    live: ""
+  },
+];
+---
+
+<Layout>
+  <main class="min-h-screen bg-black pt-32 pb-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <header class="mb-20 text-center">
+        <h1 class="text-4xl md:text-6xl font-pixel text-white mb-6 uppercase tracking-tighter">
+          All Projects
+        </h1>
+        <p class="text-gray-400 font-mono text-sm md:text-base max-w-2xl mx-auto">
+          A collection of my work, ranging from full-stack applications to low-level systems programming and machine learning.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+        {projects.map((project) => (
+          <div class="w-full max-w-[350px] aspect-[4/5] relative">
+            {/* @ts-ignore */}
+            <PixelCard client:only className="w-full h-full" variant="blue" gap={8}>
+              <div class="absolute inset-0 p-8 flex flex-col text-white z-10 pointer-events-none">
+                <h3 class="text-xl font-pixel mb-4 pointer-events-auto">{project.title}</h3>
+                
+                <div class="mb-6 pointer-events-auto">
+                  <p class="text-xs uppercase font-mono text-gray-500 mb-2">Tech Used</p>
+                  <div class="flex flex-wrap gap-2">
+                    {project.tech.map((t) => (
+                      <span class="border border-white/20 px-2 py-1 text-[10px] uppercase font-mono bg-black/40">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                <p class="text-sm font-mono text-gray-300 mb-8 pointer-events-auto">
+                  {project.description}
+                </p>
+                
+                <div class="mt-auto flex gap-4 pointer-events-auto">
+                  <a 
+                    href={project.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="border border-white/20 p-3 hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center aspect-square"
+                    title="GitHub Repository"
+                  >
+                    <img src="github.svg" alt="GitHub" class="w-7 h-7" />
+                  </a>
+                  {project.live && (
+                    <a 
+                      href={project.live} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="border border-white/20 p-3 hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center aspect-square"
+                      title="Live Demo"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </PixelCard>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+  
+  <footer class="py-10 text-center text-gray-600 text-sm border-t border-white/5 bg-black">
+    <p>&copy; 2026 Moksh Shah. All rights reserved.</p>
+  </footer>
+</Layout>
+
+<style>
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

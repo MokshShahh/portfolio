@@ -4,25 +4,25 @@ import {  ExternalLink } from 'lucide-react';
 
 const projects = [
   {
-    title: "Terminal Portfolio",
-    description: "A retro-style terminal portfolio built with Astro and React. Features a custom command-line interface and file system simulation.",
-    tech: ["Astro", "React", "Tailwind"],
-    github: "https://github.com",
-    live: "https://example.com"
+    title: "EventHub",
+    description: "A full-stack event management system built. This platform allows users to discover events, register, and manage committee activities. Built for the committees of MPSTME.",
+    tech: ["PostgreSQL", "Django", "Nextjs"],
+    github: "https://github.com/MokshShahh/EventHub",
+    live: "palladium.mpstme.dev"
   },
   {
-    title: "Terminal Portfolio",
-    description: "A retro-style terminal portfolio built with Astro and React. Features a custom command-line interface and file system simulation.",
-    tech: ["Astro", "React", "Tailwind"],
-    github: "https://github.com",
-    live: "https://example.com"
+    title: "HTTP over TCP",
+    description: "A Go HTTP/1.1 server and request parser, built without using the net/http library and implemented on raw TCP streams. ",
+    tech: ["GO"],
+    github: "https://github.com/MokshShahh/HTTP-over-TCP",
+    live: ""
   },
   {
-    title: "Terminal Portfolio",
-    description: "A retro-style terminal portfolio built with Astro and React. Features a custom command-line interface and file system simulation.",
-    tech: ["Astro", "React", "Tailwind"],
-    github: "https://github.com",
-    live: "https://example.com"
+    title: "Alzeimers detection",
+    description: "Deep learning system using EfficientNet-B2 to classify Alzheimer's disease progression from MRI scans. Automated medical imaging pipeline featuring skull stripping and contrast optimization for the OASIS-2 dataset.",
+    tech: ["Python", "Efficient net", "NUMPY"],
+    github: "https://github.com/MokshShahh/Alzeimers-detection",
+    live: ""
   },
 ];
 ---
@@ -52,7 +52,7 @@ const projects = [
                 </div>
               </div>
               
-              <p class="text-sm font-mono text-gray-300 mb-8 line-clamp-2 pointer-events-auto">
+              <p class="text-sm font-mono text-gray-300 mb-8 pointer-events-auto">
                 {project.description}
               </p>
               
@@ -64,7 +64,6 @@ const projects = [
                   class="border border-white/20 p-3 hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center aspect-square"
                   title="GitHub Repository"
                 >
-                  {/* <Github size={20} /> */}
                   <img src="github.svg" alt="GitHub" class="w-7 h-7" />
                 </a>
                 <a 
@@ -87,8 +86,7 @@ const projects = [
     </div>
     <div class="mt-16 flex justify-center">
   <a 
-    href="projects" 
-    target="_blank"
+    href="/projects" 
     class="group relative inline-flex items-center justify-center px-8 py-4 font-pixel text-[10px] md:text-xs uppercase tracking-[0.2em] text-white transition-all duration-500 ease-out"
   >
     <span class="absolute inset-0 border border-white/20 bg-black 

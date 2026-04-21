@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Dot from '../components/dot.jsx';
+import Shuffle from '../components/shuffleText.jsx';
+---
+
+<Layout>
+  <div style={{ width: '100%', height: '100vh', position: 'relative', overflow: 'hidden', background: 'black' }}>
+    {/* @ts-ignore */}
+    <Dot
+      dotRadius={3}
+      dotSpacing={10}
+      bulgeStrength={67}
+      glowRadius={160}
+      sparkle={false}
+      waveAmplitude={0}
+      cursorRadius={500}
+      cursorForce={0.1}
+      bulgeOnly
+      gradientFrom="#A855F7"
+      gradientTo="#B497CF"
+      glowColor="#120F17"
+      client:load
+    />    
+    
+    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-4">
+      <div class="pointer-events-auto">
+        {/* @ts-ignore */}
+        <Shuffle
+          text="Coming Soon"
+          className="font-pixel text-4xl md:text-6xl text-white"
+          shuffleDirection="right"
+          duration={1.0}
+          animationMode="random"
+          maxDelay={1}
+          shuffleTimes={1}
+          ease="power3.out"
+          stagger={0.03}
+          threshold={0.1}
+          triggerOnce={true}
+          triggerOnHover
+          respectReducedMotion={true}
+          loop={false}
+          loopDelay={0}
+          colorFrom={'white'}
+          colorTo={'white'}
+          client:load
+        />
+      </div>
+      <p class="text-white/60 text-sm md:text-base mt-6 font-mono tracking-widest text-center uppercase">
+          The terminal experience is under development
+      </p>
+      
+      <div class="mt-12 flex gap-4 pointer-events-auto">
+        <a 
+          href="/" 
+          class="px-6 py-2 border border-white/20 text-white font-mono text-xs uppercase hover:bg-white hover:text-black transition-all"
+        >
+          Return Home
+        </a>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-10 left-0 w-full flex justify-center pointer-events-none">
+        <div class="font-mono text-[10px] text-gray-500 uppercase tracking-[0.3em] animate-pulse">
+            System Initializing...
+        </div>
+    </div>
+  </div>
+</Layout>
