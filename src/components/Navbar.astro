@@ -9,37 +9,39 @@ const links = [
 ];
 ---
 
-<header class={`fixed top-0 left-0 w-full flex justify-center p-6 z-50 ${className}`}>
-  <nav class="flex items-center px-6 py-2.5 rounded-full border border-white/10 bg-black/20 backdrop-blur-md transition-all duration-300 hover:border-white/20">
-    <div class="font-mono hidden md:flex items-center gap-8">
-      {links.map((link) => (
+<header class={`fixed top-0 left-0 w-full p-6 z-50 ${className}`}>
+  <div class="flex justify-center w-full relative z-70">
+    <nav class="flex items-center px-6 py-2.5 rounded-full border border-white/10 bg-black/20 backdrop-blur-md transition-all duration-300 hover:border-white/20">
+      <div class="font-mono hidden md:flex items-center gap-8">
+        {links.map((link) => (
+          <a 
+            href={link.href} 
+            download={link.download}
+            class="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200"
+          >
+            {link.name}
+          </a>
+        ))}
+        <div class="w-px h-4 bg-white/10 mx-2"></div>
         <a 
-          href={link.href} 
-          download={link.download}
-          class="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200"
+          href="/contact" 
+          class="text-sm font-medium text-white hover:text-green-400 transition-colors duration-200"
         >
-          {link.name}
+          Contact
         </a>
-      ))}
-      <div class="w-px h-4 bg-white/10 mx-2"></div>
-      <a 
-        href="/contact" 
-        class="text-sm font-medium text-white hover:text-green-400 transition-colors duration-200"
-      >
-        Contact
-      </a>
-    </div>
+      </div>
 
-    <!-- Mobile Toggle -->
-    <button id="menuToggle" class="md:hidden flex items-center justify-center text-white/70 hover:text-white transition-colors">
-      <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
-      </svg>
-      <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </nav>
+      <!-- Mobile Toggle -->
+      <button id="menuToggle" class="md:hidden flex items-center justify-center text-white/70 hover:text-white transition-colors relative z-70">
+        <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+        <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </nav>
+  </div>
 
   <!-- Mobile Menu Overlay -->
   <div id="mobileMenu" class="fixed inset-0 bg-black/95 backdrop-blur-2xl hidden flex-col items-center justify-center gap-8 z-60 transition-all duration-300 opacity-0">
@@ -62,52 +64,57 @@ const links = [
 </header>
 
 <script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuIcon = document.getElementById('menuIcon');
-  const closeIcon = document.getElementById('closeIcon');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
+  function initMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  function toggleMenu() {
-    if (!mobileMenu || !menuIcon || !closeIcon) return;
+    function toggleMenu() {
+      if (!mobileMenu || !menuIcon || !closeIcon) return;
 
-    const isHidden = mobileMenu.classList.contains('hidden');
+      const isHidden = mobileMenu.classList.contains('hidden');
 
-    if (isHidden) {
-      // Open Menu
-      mobileMenu.classList.remove('hidden');
-      mobileMenu.classList.add('flex');
-      // Small timeout to allow transition to trigger after removing hidden
-      setTimeout(() => {
-        mobileMenu.classList.replace('opacity-0', 'opacity-100');
-      }, 10);
-      menuIcon.classList.add('hidden');
-      closeIcon.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    } else {
-      // Close Menu
-      mobileMenu.classList.replace('opacity-100', 'opacity-0');
-      menuIcon.classList.remove('hidden');
-      closeIcon.classList.add('hidden');
-      document.body.style.overflow = 'auto';
+      if (isHidden) {
+        // Open Menu
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+        // Small timeout to allow transition to trigger after removing hidden
+        setTimeout(() => {
+          mobileMenu.classList.replace('opacity-0', 'opacity-100');
+        }, 10);
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        // Close Menu
+        mobileMenu.classList.replace('opacity-100', 'opacity-0');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        document.body.style.overflow = 'auto';
 
-      setTimeout(() => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('flex');
-      }, 300);
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('flex');
+        }, 300);
+      }
     }
+
+    menuToggle?.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleMenu();
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          toggleMenu();
+        }
+      });
+    });
   }
 
-  menuToggle?.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleMenu();
-  });
-
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-        toggleMenu();
-      }
-    });
-  });
+  // Run on initial load and after each navigation
+  document.addEventListener('astro:page-load', initMenu);
 </script>
