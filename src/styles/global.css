@@ -5,18 +5,17 @@
 @theme {
   --font-pixel: "Press Start 2P", system-ui;
   --font-mono: "Space Mono", monospace;
-}
+  
+  --animate-scroll-pulse: scroll-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply transition-colors duration-300;
-  }
-
-  a, button {
-    @apply transition-all duration-300 ease-in-out;
+  @keyframes scroll-pulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(10px);
+    }
   }
 }
