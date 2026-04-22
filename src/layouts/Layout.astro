@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar.astro";
 import Footer from '../components/footer.astro';
 import { ClientRouter } from 'astro:transitions';
 import "../styles/global.css";
+import Analytics from '@vercel/analytics/astro'
 ---
 
 <!doctype html>
@@ -24,6 +25,7 @@ import "../styles/global.css";
     </head>
     <body class="bg-black">
         <Navbar />
+        <Analytics />
         <slot />
         <Footer />
     </body>
