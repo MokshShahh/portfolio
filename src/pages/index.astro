@@ -1,14 +1,48 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Dot from '../components/dot.jsx';
-import Shuffle from '../components/shuffleText.jsx';
-import Experience from '../components/Experience.astro';
-import Projects from '../components/Projects.astro';
+import Layout from "../layouts/Layout.astro";
+import Dot from "../components/dot.jsx";
+import Shuffle from "../components/shuffleText.jsx";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
 
+const projects = [
+  {
+    title: "Rail Yatri",
+    description:
+      "Smart railway dispatcher developed for SIH 2025 (Top 30 out of 125+). Uses MILP and Deep Reinforcement Learning to resolve real-time scheduling conflicts for the Mumbai Railway network.",
+    tech: ["FastAPI", "Neo4j", "Three.js", "ML"],
+    github: "https://github.com/MokshShahh/Alzeimers-detection",
+    live: "https://sih-25-delta.vercel.app",
+  },
+  {
+    title: "HTTP over TCP",
+    description:
+      "A high-performance HTTP/1.1 server built from scratch in Go, bypassing standard libraries to implement core networking protocols directly on raw TCP streams.",
+    tech: ["Go", "TCP", "Systems"],
+    github: "https://github.com/MokshShahh/HTTP-over-TCP",
+    live: "",
+  },
+  {
+    title: "Stello",
+    description:
+      "A full-stack event management system built for the committees of MPSTME. Allows users to discover events, register, and manage complex committee activities.",
+    tech: ["PostgreSQL", "Django", "Next.js"],
+    github: "https://github.com/MokshShahh/EventHub",
+    live: "https://stello-iota.vercel.app",
+  },
+];
 ---
 
 <Layout>
-  <div style={{ width: '100%', height: '100vh', position: 'relative', overflow: 'hidden', background: 'black' }}>
+  <div
+    style={{
+      width: "100%",
+      height: "100vh",
+      position: "relative",
+      overflow: "hidden",
+      background: "black",
+    }}
+  >
     {/* @ts-ignore */}
     <Dot
       dotRadius={2}
@@ -24,12 +58,17 @@ import Projects from '../components/Projects.astro';
       gradientTo="#B497CF"
       glowColor="#120F17"
       client:load
-    />    
-    <div class="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-black to-transparent z-5 pointer-events-none"></div>
+    />
+    <div
+      class="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-black to-transparent z-5 pointer-events-none"
+    >
+    </div>
 
-    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-4">
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-10"
+    >
       <div class="pointer-events-auto">
-                    {/* @ts-ignore */}
+        {/* @ts-ignore */}
 
         <Shuffle
           text="Moksh Shah"
@@ -47,53 +86,127 @@ import Projects from '../components/Projects.astro';
           respectReducedMotion={true}
           loop={false}
           loopDelay={0}
-          colorFrom={'white'}
-          colorTo={'white'}
+          colorFrom={"white"}
+          colorTo={"white"}
           client:load
         />
       </div>
-      <p class="text-white text-lg md:text-xl mt-4 font-bold tracking-wide text-center uppercase font-mono">
-          I build things
+      <p
+        class="text-white text-lg md:text-xl mt-4 font-bold tracking-wide text-center uppercase font-mono"
+      >
+        I build things
       </p>
-<a href="/terminal" class="pointer-events-auto">
-<button
-  class="group relative mt-8 inline-flex items-center justify-center px-3 py-3 font-pixel text-xs md:text-sm uppercase tracking-[0.2em] text-green-400 transition-all duration-500 ease-in-out"
->
-  <span 
-    class="absolute inset-0 border-2 border-green-500 bg-transparent
-           group-hover:bg-green-400 group-hover:shadow-[0_0_30px_rgba(74,222,128,0.6)] 
+      <a href="/terminal" class="pointer-events-auto">
+        <button
+          class="group relative mt-8 inline-flex items-center justify-center px-3 py-3 font-pixel text-xs md:text-sm uppercase tracking-[0.2em] text-green-400 transition-all duration-500 ease-in-out"
+        >
+          <span
+            class="absolute inset-0 border-2 border-green-500 bg-transparent
+           group-hover:bg-green-400 group-hover:shadow-[0_0_30px_rgba(74,222,128,0.6)]
            transition-all duration-500"
-  ></span>
+          ></span>
 
-  <span class="absolute -top-3 -left-3 w-4 h-4 border-t-2 border-l-2 border-green-500 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-300"></span>
-  <span class="absolute -bottom-3 -right-3 w-4 h-4 border-b-2 border-r-2 border-green-500 opacity-50 group-hover:opacity-100 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-all duration-300"></span>
+          <span
+            class="absolute -top-3 -left-3 w-4 h-4 border-t-2 border-l-2 border-green-500 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-300"
+          ></span>
+          <span
+            class="absolute -bottom-3 -right-3 w-4 h-4 border-b-2 border-r-2 border-green-500 opacity-50 group-hover:opacity-100 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
+          ></span>
 
-  <span class="relative z-10 flex items-center gap-3 group-hover:text-black transition-colors duration-500">
-    <span class="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-      &gt;
-    </span>
-    Terminal Website
-    <svg 
-      class="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-500" 
-      fill="none" 
-      stroke="currentColor" 
-      viewBox="0 0 24 24"
-    >
-    </svg>
-  </span>
-</button>
-</a>
+          <span
+            class="relative z-10 flex items-center gap-3 group-hover:text-black transition-colors duration-500"
+          >
+            <span
+              class="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+            >
+              &gt;
+            </span>
+            Terminal Website
+            <svg
+              class="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+            </svg>
+          </span>
+        </button>
+      </a>
     </div>
 
-    <div class="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white animate-scroll-pulse pointer-events-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    <div
+      class="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white animate-scroll-pulse pointer-events-none"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
       </svg>
     </div>
   </div>
 
   <Experience />
-  <Projects />
+  <div class="mx-auto max-w-6xl px-8">
+    <div class="mb-16">
+      <h2
+        class="font-pixel text-2xl md:text-3xl text-white mb-6 uppercase tracking-tighter"
+      >
+        Featured Projects
+      </h2>
+      <p class="text-white/60 font-mono text-sm max-w-xl">
+        A selection of my work in AI optimization, low-level systems, and
+        full-stack development.
+      </p>
+    </div>
+  </div>
+  <Projects projects={projects} />
+  <div class="mt-16 flex justify-center">
+    <a
+      href="/projects"
+      class="group relative inline-flex items-center justify-center px-8 py-4 font-pixel text-[10px] md:text-xs uppercase tracking-[0.2em] text-white transition-all duration-500 ease-out"
+    >
+      <span
+        class="absolute inset-0 border border-white/20 bg-black
+                 group-hover:bg-white group-hover:border-white
+                 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]
+                 transition-all duration-500"
+      ></span>
 
+      <span
+        class="absolute -top-1 -left-1 w-2 h-2 border-t- border-l-2 border-green-500
+                 group-hover:translate-x-0.5 group-hover:translate-y-0.5[-2px]
+                 transition-transform duration-300"
+      ></span>
+      <span
+        class="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-green-500
+                 group-hover:translate-x-0.5 group-hover:translate-y-0.5
+                 transition-transform duration-300"
+      ></span>
 
+      <span
+        class="relative z-10 flex items-center gap-3 group-hover:text-black transition-colors duration-500"
+      >
+        View More Projects
+        <svg
+          class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </span>
+    </a>
+  </div>
 </Layout>

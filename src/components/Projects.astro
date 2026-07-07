@@ -1,122 +1,89 @@
 ---
-import PixelCard from './pixelCard.jsx';
-import { ExternalLink } from 'lucide-react';
+import PixelCard from "./pixelCard.jsx";
+import { ExternalLink } from "lucide-react";
 
-const projects = [
-  {
-    title: "Rail Yatri",
-    description: "Smart railway dispatcher developed for SIH 2025 (Top 30 out of 125+). Uses MILP and Deep Reinforcement Learning to resolve real-time scheduling conflicts for the Mumbai Railway network.",
-    tech: ["FastAPI", "Neo4j", "Three.js", "ML"],
-    github: "https://github.com/MokshShahh/Alzeimers-detection",
-    live: "https://sih-25-delta.vercel.app"
-  },
-  {
-    title: "HTTP over TCP",
-    description: "A high-performance HTTP/1.1 server built from scratch in Go, bypassing standard libraries to implement core networking protocols directly on raw TCP streams.",
-    tech: ["Go", "TCP", "Systems"],
-    github: "https://github.com/MokshShahh/HTTP-over-TCP",
-    live: ""
-  },
-  {
-    title: "Stello",
-    description: "A full-stack event management system built for the committees of MPSTME. Allows users to discover events, register, and manage complex committee activities.",
-    tech: ["PostgreSQL", "Django", "Next.js"],
-    github: "https://github.com/MokshShahh/EventHub",
-    live: "https://stello-iota.vercel.app"
-  }
-];
+interface project {
+  title: string;
+  description: string;
+  tech: string[];
+  live: string;
+  github: string;
+}
+interface Props {
+  projects: project[];
+}
+
+const { projects } = Astro.props;
 ---
 
-<section id="projects" class="py-24 px-6 bg-black">
+<section id="projects" class="px-6 bg-black">
   <div class="max-w-6xl mx-auto">
-    <div class="mb-16">
-      <h2 class="font-pixel text-2xl md:text-3xl text-white mb-6 uppercase tracking-tighter">
-        Featured Projects
-      </h2>
-      <p class="text-white/60 font-mono text-sm max-w-xl">
-        A selection of my work in AI optimization, low-level systems, and full-stack development.
-      </p>
-    </div>
-
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-      {projects.map((project) => (
-        <div class="group relative aspect-4/5">
-          {/* @ts-ignore */}
-          <PixelCard client:only className="w-full h-full" variant="blue" gap={8}>
-            <div class="absolute inset-0 p-8 flex flex-col text-white z-10 pointer-events-none">
-              <h3 class="text-lg font-pixel mb-4 pointer-events-auto leading-tight">{project.title}</h3>
-              
-              <div class="mb-6 pointer-events-auto">
-                <div class="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
-                    <span class="border border-white/10 px-2 py-1 text-xs font-mono text-white/70 bg-white/2">
-                      {t}
-                    </span>
-                  ))}
+      {
+        projects.map((project) => (
+          <div class="group relative aspect-4/5">
+            {/* @ts-ignore */}
+            <PixelCard
+              client:only
+              className="w-full h-full"
+              variant="blue"
+              gap={8}
+            >
+              <div class="absolute inset-0 p-8 flex flex-col text-white z-10 pointer-events-none">
+                <h3 class="text-lg font-pixel mb-4 pointer-events-auto leading-tight">
+                  {project.title}
+                </h3>
+
+                <div class="mb-6 pointer-events-auto">
+                  <div class="flex flex-wrap gap-2">
+                    {project.tech.map((t) => (
+                      <span class="border border-white/10 px-2 py-1 text-xs font-mono text-white/70 bg-white/2">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              
-              <p class="text-sm font-mono text-white/70 mb-8 pointer-events-auto leading-relaxed">
-                {project.description}
-              </p>
-              
-              <div class="mt-auto flex gap-4 pointer-events-auto">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="group/icon border border-white/10 p-3 hover:bg-white transition-all duration-300 flex items-center justify-center aspect-square relative"
-                  title="GitHub Repository"
-                >
-                  <img src="github.svg" alt="GitHub" class="w-6 h-6 group-hover/icon:opacity-0 transition-opacity" />
-                  <img src="github-dark.png" alt="GitHub" class="w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/icon:opacity-100 transition-opacity" />
-                </a>
-                {project.live && (
+
+                <p class="text-sm font-mono text-white/70 mb-8 pointer-events-auto leading-relaxed">
+                  {project.description}
+                </p>
+
+                <div class="mt-auto flex gap-4 pointer-events-auto">
                   <a
-                    href={project.live}
+                    href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="border border-white/10 p-3 hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center aspect-square"
-                    title="Live Demo"
+                    class="group/icon border border-white/10 p-3 hover:bg-white transition-all duration-300 flex items-center justify-center aspect-square relative"
+                    title="GitHub Repository"
                   >
-                    <ExternalLink size={18} />
+                    <img
+                      src="github.svg"
+                      alt="GitHub"
+                      class="w-6 h-6 group-hover/icon:opacity-0 transition-opacity"
+                    />
+                    <img
+                      src="github-dark.png"
+                      alt="GitHub"
+                      class="w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/icon:opacity-100 transition-opacity"
+                    />
                   </a>
-                )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="border border-white/10 p-3 hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center aspect-square"
+                      title="Live Demo"
+                    >
+                      <ExternalLink size={18} />
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-          </PixelCard>
-        </div>
-      ))}
+            </PixelCard>
+          </div>
+        ))
+      }
     </div>
-        <div class="mt-16 flex justify-center">
-      <a 
-    href="/projects" 
-    class="group relative inline-flex items-center justify-center px-8 py-4 font-pixel text-[10px] md:text-xs uppercase tracking-[0.2em] text-white transition-all duration-500 ease-out"
-  >
-    <span class="absolute inset-0 border border-white/20 bg-black 
-                 group-hover:bg-white group-hover:border-white 
-                 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] 
-                 transition-all duration-500"></span>
-    
-    <span class="absolute -top-1 -left-1 w-2 h-2 border-t- border-l-2 border-green-500 
-                 group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] 
-                 transition-transform duration-300"></span>
-    <span class="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-green-500 
-                 group-hover:translate-x-[2px] group-hover:translate-y-[2px] 
-                 transition-transform duration-300"></span>
-    
-    <span class="relative z-10 flex items-center gap-3 group-hover:text-black transition-colors duration-500">
-      View More Projects
-      <svg 
-        class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-500" 
-        fill="none" 
-        stroke="currentColor" 
-        viewBox="0 0 24 24"
-      >
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-      </svg>
-    </span>
-  </a>
-</div>
   </div>
 </section>
